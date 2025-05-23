@@ -2,6 +2,7 @@
 import { makePottery } from "./PotteryWheel.js";
 import { firePottery } from "./Kiln.js";
 import { toSellOrNotToSell, usePottery } from "./PotteryCatalog.js";
+import { potteryList } from "./PotteryList.js";
 
 // Make 5 pieces of pottery at the wheel
 let mug = makePottery("Mug", 8, 6)
@@ -29,20 +30,28 @@ let cupFired = firePottery(cup, 2400)
 //console.log(cupFired)
 
 let mugToSell = toSellOrNotToSell(mugFired)
-console.log(mugToSell)    
+//console.log(mugToSell)    
 let bowlToSell = toSellOrNotToSell(bowlFired)
-console.log(bowlToSell)
+//console.log(bowlToSell)
 let vaseToSell = toSellOrNotToSell(vaseFired)
-console.log(vaseToSell)
+//console.log(vaseToSell)
 let plateToSell = toSellOrNotToSell(plateFired)
-console.log(plateToSell)
+//console.log(plateToSell)
 let cupToSell = toSellOrNotToSell(cupFired)
-console.log(cupToSell)
+//console.log(cupToSell)
 
 // Determine which ones should be sold, and their price
 
 
 // Invoke the component function that renders the HTML list
+ const soldPottery = usePottery()
+ const htmlString = potteryList(soldPottery)
+ const container = document.querySelector(".potteryList")
+ if (container) {
+     container.innerHTML = htmlString
+ } else {
+    console.error( "Could not find potteryList")
+ }
 
 //take its return value and update the innerHTML of the
 // article element you created in the PotteryList.js file.
