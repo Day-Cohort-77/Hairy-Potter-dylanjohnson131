@@ -1,6 +1,14 @@
 // define and export a function name firePottery
 //that is responsible for acting as a kiln
-
+export const firePottery = (pottery, temperature) => {
+     if (temperature > 2200) {
+        pottery.cracked = true
+    if (temperature <= 2200) {
+        pottery.cracked = false
+    }
+}
+return pottery
+}
 // the function must accept the following values as
 // input parameters:
 
