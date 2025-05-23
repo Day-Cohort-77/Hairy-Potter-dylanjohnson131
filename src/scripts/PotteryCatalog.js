@@ -1,8 +1,22 @@
 // define a variable with a value of an empty array.
 // this array will be used to store the pieces of pottery
 // that will be sold. DO NOT EXPORT THIS ARRAY.
+const potteryToBeSold = []
+export const toSellOrNotToSell = (pottery) => {
+    if (pottery.cracked === false) {
+        if (pottery.weight >= 6) {
+            pottery.price = 40
+        } else {
+            pottery.price = 20
+        }
+        potteryToBeSold.push(pottery)
+    }
+    return potteryToBeSold
+}
 
-
+export const usePottery = () => {
+    return structuredClone(potteryToBeSold)
+}
 // define and export a function named "toSellOrNotToSell"
 // that is responsible for determining if a piece of
 // pottery should be sold. 
